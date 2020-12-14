@@ -10,7 +10,7 @@ source:
   sha256: fe136dba94365523a64d9f08fecbcd62a7f9369e05f4dc5ada2d40d51e1f3df9
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - openneuro-py = openneuro.openneuro:cli
