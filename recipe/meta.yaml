@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: fe136dba94365523a64d9f08fecbcd62a7f9369e05f4dc5ada2d40d51e1f3df9
+  sha256: 77e741fdbff37af07c9e60f086ecc293c3fbbe8dce3651103abb740cebd6bb70
 
 build:
-  number: 2
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - openneuro-py = openneuro.openneuro:cli
