@@ -32,7 +32,7 @@ test:
   commands:
      # Test the entry point.
     - openneuro-py --version
-    - openneuro-py download --dataset=ds000248 --include=CHANGES
+    - openneuro-py download --dataset=ds000248 --include=CHANGES --verify_size=0
 
 about:
   home: https://github.com/hoechenberger/openneuro-py
