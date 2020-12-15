@@ -1,5 +1,5 @@
 {% set name = "openneuro-py" %}
-{% set version = "2020.2" %}
+{% set version = "2020.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -21,10 +21,10 @@ requirements:
     - pip
   run:
     - python
-    - requests
+    - httpx >=0.15
     - tqdm
     - click
-    - importlib-metadata ~=1.0  # [py <38]
+    - importlib-metadata  # [py <38]
 
 test:
   imports:
@@ -32,6 +32,7 @@ test:
   commands:
      # Test the entry point.
     - openneuro-py --version
+    - openneuro-py download --dataset=ds000248 --include=CHANGES
 
 about:
   home: https://github.com/hoechenberger/openneuro-py
