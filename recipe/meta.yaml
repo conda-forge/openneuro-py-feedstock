@@ -1,5 +1,5 @@
 {% set name = "openneuro-py" %}
-{% set version = "2020.3.1" %}
+{% set version = "2020.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 77e741fdbff37af07c9e60f086ecc293c3fbbe8dce3651103abb740cebd6bb70
+  sha256: a05ca529f4514467bae0c60b14588aff8aaba7a96512121d50362bb8702c0dc6
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - openneuro-py = openneuro.openneuro:cli
 
@@ -39,7 +39,7 @@ about:
   license: GPL-3.0-only
   license_family: GPL
   license_file: LICENSE
-  summary: 'A Python client for OpenNeuro.'
+  summary: A Python client for OpenNeuro.
 
 extra:
   recipe-maintainers:
