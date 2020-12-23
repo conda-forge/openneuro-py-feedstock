@@ -1,5 +1,5 @@
 {% set name = "openneuro-py" %}
-{% set version = "2020.4" %}
+{% set version = "2020.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a05ca529f4514467bae0c60b14588aff8aaba7a96512121d50362bb8702c0dc6
+  sha256: e98b184488ce31a6f486f661983a7262c08227905473f35b6886adc4927bfaf3
 
 build:
   number: 0
