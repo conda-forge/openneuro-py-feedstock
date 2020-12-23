@@ -1,5 +1,5 @@
 {% set name = "openneuro-py" %}
-{% set version = "2020.4" %}
+{% set version = "2020.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a05ca529f4514467bae0c60b14588aff8aaba7a96512121d50362bb8702c0dc6
+  sha256: b28a54d1394e5828338ca2055791e8fba6306e525fb84c0be002d9d1bbfbf8d2
 
 build:
   number: 0
@@ -21,6 +21,7 @@ requirements:
     - pip
   run:
     - python
+    - aiofiles
     - httpx >=0.15
     - tqdm
     - click
