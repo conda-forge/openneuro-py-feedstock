@@ -21,6 +21,7 @@ requirements:
     - pip
   run:
     - python
+    - aiofiles
     - httpx >=0.15
     - tqdm
     - click
@@ -32,7 +33,7 @@ test:
   commands:
      # Test the entry point.
     - openneuro-py --version
-    - openneuro-py download --dataset=ds000248 --include=CHANGES --verify_size=0
+    - openneuro-py download --dataset=ds000248 --include=CHANGES
 
 about:
   home: https://github.com/hoechenberger/openneuro-py
