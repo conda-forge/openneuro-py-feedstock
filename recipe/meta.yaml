@@ -1,5 +1,5 @@
 {% set name = "openneuro-py" %}
-{% set version = "2021.2" %}
+{% set version = "2021.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0068d28fe5691000a375e950a158b20af53357d633bedcda82231e08b8f67ce2
+  sha256: 70f42f51e90cf08707708b65f7310f9b8770513de95a9b3ba1d22968df768c6c
 
 build:
   number: 0
@@ -23,9 +23,13 @@ requirements:
     - python
     - aiofiles
     - httpx >=0.15
+    - sgqlc
+    - requests
     - tqdm
     - click
     - importlib-metadata  # [py <38]
+    - typing-extensions   # [py <38]
+    - async_generator     # [py ==36]
 
 test:
   imports:
