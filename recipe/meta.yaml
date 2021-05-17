@@ -29,7 +29,7 @@ requirements:
     - click
     - importlib-metadata  # [py <38]
     - typing-extensions   # [py <38]
-    - async_generator     # [py ==3.6]
+    - async_generator     # [py ==36]
 
 test:
   imports:
