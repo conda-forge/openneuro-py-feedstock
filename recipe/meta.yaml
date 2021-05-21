@@ -1,5 +1,5 @@
 {% set name = "openneuro-py" %}
-{% set version = "2021.5" %}
+{% set version = "2021.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cb752bad40c943c5d7bea5822911cfe192193d7d691ad08407873784a9deb1b3
+  sha256: f4bdd0a8a4e1c1d76c56d697303fe0cd8f3b9e61721a80a6ed0a7afff181273a
 
 build:
   number: 0
-  skip: True  # [py <37]
+  skip: true  # [py <37]
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - openneuro-py = openneuro.openneuro:cli
