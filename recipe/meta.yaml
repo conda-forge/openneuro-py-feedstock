@@ -1,5 +1,5 @@
 {% set name = "openneuro-py" %}
-{% set version = "2022.2.0" %}
+{% set version = "2022.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a33b1e41df8ac1602865e8f579ddcd8210e824c8c03d2ff655e237607af2a639
+  sha256: f24b74ef2959c6851338d2f6dc766594580856562e2b9f6806924b2ce8fe4047
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py < 37 or python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
