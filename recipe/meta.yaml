@@ -23,6 +23,8 @@ requirements:
   host:
     - python
     - pip
+    - setuptools >=65
+    - setuptools_scm
   run:
     - python
     - aiofiles
@@ -31,6 +33,8 @@ requirements:
     - requests
     - tqdm
     - click
+    - setuptools
+    - appdirs
     - importlib-metadata  # [py <38]
     - typing-extensions   # [py <38]
 
