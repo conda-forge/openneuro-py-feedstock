@@ -1,5 +1,5 @@
 {% set name = "openneuro-py" %}
-{% set version = "2022.4.0" %}
+{% set version = "2023.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,26 +7,26 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 67dfbeba7983089e6c09dcb0a8305d48fa79fb158004dafda462f8f6511e5310
+  sha256: 9125357b162e080a9997f7bff58a6eb96c8f07125f92106de894a681cdcecb45
 
 build:
   number: 0
-  skip: true  # [py < 37 or python_impl == 'pypy']
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - openneuro-py = openneuro.openneuro:cli
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+    - python >=3.8                           # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python
+    - python  >=3.8
     - pip
     - setuptools >=65
     - setuptools_scm
   run:
-    - python
+    - python >=3.8
     - aiofiles
     - httpx >=0.15
     - sgqlc
@@ -34,9 +34,7 @@ requirements:
     - tqdm
     - click
     - setuptools
-    - appdirs
-    - importlib-metadata  # [py <38]
-    - typing-extensions   # [py <38]
+    - platformdirs
 
 test:
   imports:
