@@ -1,13 +1,13 @@
 {% set name = "openneuro-py" %}
-{% set version = "2023.1.0" %}
+{% set version = "2024.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9125357b162e080a9997f7bff58a6eb96c8f07125f92106de894a681cdcecb45
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 660b92a2f87354df3e29a4fd5ade8adf607bd5bec7e912e55f2b2b50691f381a
 
 build:
   number: 0
