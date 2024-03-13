@@ -1,40 +1,39 @@
 {% set name = "openneuro-py" %}
-{% set version = "2023.1.0" %}
+{% set version = "2024.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9125357b162e080a9997f7bff58a6eb96c8f07125f92106de894a681cdcecb45
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: fd36ff1dd30ffc222f180552e9d9c6d2c82b631cd111b6d0be0273500ee03e31
 
 build:
   number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - openneuro-py = openneuro.openneuro:cli
+    - openneuro-py = openneuro._cli:app
 
 requirements:
   build:
-    - python >=3.8                           # [build_platform != target_platform]
+    - python >=3.10                          # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python  >=3.8
+    - python  >=3.10
     - pip
-    - setuptools >=65
-    - setuptools_scm
+    - hatchling
+    - hatch-vcs
   run:
-    - python >=3.8
+    - python >=3.10
     - aiofiles
     - httpx >=0.15
     - sgqlc
     - requests
     - tqdm
-    - click
-    - setuptools
     - platformdirs
+    - typer
 
 test:
   imports:
@@ -42,7 +41,9 @@ test:
   commands:
      # Test the entry point.
     - openneuro-py --version
-    - openneuro-py download --dataset=ds000248 --include=CHANGES --verify_size=0
+    - openneuro-py --help
+    - openneuro-py download --help
+    - openneuro-py download --dataset=ds000248 --include=CHANGES --no-verify-size
 
 about:
   home: https://github.com/hoechenberger/openneuro-py
