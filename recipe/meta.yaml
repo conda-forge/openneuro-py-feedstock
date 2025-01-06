@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "openneuro-py" %}
 {% set version = "2024.2.0" %}
 
@@ -6,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: fd36ff1dd30ffc222f180552e9d9c6d2c82b631cd111b6d0be0273500ee03e31
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -21,12 +22,12 @@ requirements:
     - python >=3.10                          # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python  >=3.10
+    - python {{ python_min }}
     - pip
     - hatchling
     - hatch-vcs
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - aiofiles
     - httpx >=0.15
     - sgqlc
@@ -36,6 +37,8 @@ requirements:
     - typer
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - openneuro
   commands:
