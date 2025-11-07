@@ -1,6 +1,6 @@
 {% set python_min = "3.10" %}
 {% set name = "openneuro-py" %}
-{% set version = "2025.1.0" %}
+{% set version = "2025.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 863f19469e69982e9e6db3fa6474e4116e5fb486dddbe7ea89c8049ac11528d3
+  sha256: 0fcf40f729077a0f3f14397046f5bf84a1daa6ba5797ed1a1f80a15d51e3e92d
 
 build:
   number: 0
