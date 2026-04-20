@@ -1,6 +1,6 @@
 {% set python_min = "3.10" %}
 {% set name = "openneuro-py" %}
-{% set version = "2026.4.0" %}
+{% set version = "2026.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,52 +8,51 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 77e9ef64d2dda680a438f148ad76c08320a18136ca65a6fd3d22409013030205
+  sha256: 33d9e760dd5888f09e9696c21e40065f97c09cb171e14f30afbe9c323a320d68
 
 build:
-  number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - openneuro-py = openneuro._cli:app
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
-  build:
-    - python >=3.10                          # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - python {{ python_min }}
-    - pip
-    - hatchling
     - hatch-vcs
+    - hatchling
+    - pip
   run:
     - python >={{ python_min }}
     - aiofiles
     - httpx >=0.15
-    - sgqlc
-    - requests
-    - tqdm
     - platformdirs
-    - typer
+    - pydantic >=2
+    - tqdm
+    - truststore >=0.10.4
+    - typer >=0.24.0
+    - wcmatch >=10.1
 
 test:
-  requires:
-    - python {{ python_min }}
   imports:
     - openneuro
   commands:
+    - pip check
      # Test the entry point.
     - openneuro-py --version
     - openneuro-py --help
     - openneuro-py download --help
     - openneuro-py download --dataset=ds000248 --include=CHANGES --no-verify-size
+  requires:
+    - pip
+    - python {{ python_min }}
 
 about:
-  home: https://github.com/hoechenberger/openneuro-py
-  license: GPL-3.0-only
-  license_family: GPL
-  license_file: LICENSE
+  home: https://pypi.org/project/openneuro-py/
   summary: A Python client for OpenNeuro.
+  license: GPL-3.0-only
+  license_file: LICENSE
 
 extra:
   recipe-maintainers:

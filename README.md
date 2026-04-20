@@ -3,7 +3,7 @@ About openneuro-py-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openneuro-py-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/hoechenberger/openneuro-py
+Home: https://pypi.org/project/openneuro-py/
 
 Package license: GPL-3.0-only
 
