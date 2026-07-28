@@ -1,6 +1,6 @@
 {% set python_min = "3.10" %}
 {% set name = "openneuro-py" %}
-{% set version = "2026.7.0" %}
+{% set version = "2026.7.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 19cf0570d3b36b250a0dc829e4de078ac7400d62aafa76e8bbfb1b4460f4468f
+  sha256: ee885a46859235ae62d27ce612ee49b6a330fd0eac276e7f58b6018d8af859d1
 
 build:
   entry_points:
@@ -26,11 +26,10 @@ requirements:
   run:
     - python >={{ python_min }}
     - aiofiles
-    - httpx >=0.15
+    - niquests >=3.7.2
     - platformdirs
     - pydantic >=2
-    - tqdm
-    - truststore >=0.10.4
+    - rich >=13.8
     - typer >=0.24.0
     - wcmatch >=10.1
 
