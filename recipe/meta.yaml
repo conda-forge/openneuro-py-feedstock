@@ -26,11 +26,10 @@ requirements:
   run:
     - python >={{ python_min }}
     - aiofiles
-    - httpx >=0.15
+    - niquests >=3.7.2
     - platformdirs
     - pydantic >=2
-    - tqdm
-    - truststore >=0.10.4
+    - rich >=13.8
     - typer >=0.24.0
     - wcmatch >=10.1
 
